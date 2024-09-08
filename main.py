@@ -1,12 +1,16 @@
 def main():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
-    num_words = get_num_words(file_contents)
-    print(f"This book has {num_words} words")
-    
-def get_num_words(file_contents):
-    num_words = file_contents.split()
-    return len(num_words)
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+    num_words = get_num_words(text)
+    print(f"{num_words} words found in this document")
+
+def get_num_words(text):
+    words = text.split()
+    return len(words)
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
 
 #This line calls the main function
 if __name__ == "__main__":
